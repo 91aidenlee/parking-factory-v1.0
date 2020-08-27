@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="wrap">
+      <%- include("partials/header.ejs") %>
+      <div class="main">
+        <h1 class="main_title uppercase_text"><%= page %></h1>
+        <form class="form" action="/check_in" method="POST">
+          <input class="input_form" id="inNumber" type="text" name="log_car_number" placeholder="차량번호" maxlength="8" required />
+          <button class="submit_btn uppercase_text" type="submit"><%= page %></button>
+        </form>
+      </div>
+      <%- include("partials/footer.ejs") %>
+    </div>
+    <%- include("partials/jquery.ejs") %>
+  </body>
+</html>

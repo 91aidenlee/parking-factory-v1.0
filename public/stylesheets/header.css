@@ -1,0 +1,23 @@
+/* ----- Header ----- */
+
+.header {
+  /* border: 3px solid #f00; */
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header_title:hover {
+  color: #8c8c88;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.header_menu {
+  font-weight: 700;
+}
+
+.header_list {
+  color: #242226;
+}

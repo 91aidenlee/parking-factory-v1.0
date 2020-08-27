@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="wrap">
+      <%- include("partials/header.ejs") %>
+      <div class="main">
+        <h1 class="main_title uppercase_text"><%= page %></h1>
+        <form class="form login_form" action="/admin_auth" method="POST">
+          <input class="input_form" type="text" name="input_id" placeholder="아이디" required />
+          <input class="input_form" type="password" name="input_pw" placeholder="비밀번호" required />
+          <button class="submit_btn join_btn uppercase_text" type="submit">Login</button>
+        </form>
+      </div>
+      <%- include("partials/footer.ejs") %>
+    </div>
+    <%- include("partials/jquery.ejs") %>
+  </body>
+</html>
