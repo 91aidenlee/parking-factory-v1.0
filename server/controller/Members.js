@@ -36,6 +36,7 @@ class Members {
 
     query = `SELECT * FROM members WHERE member_car_number = '${my_car_number}'`;
     result = await db.getData(query);
+    console.log(result[0]);
     if (result[0]) {
       rns = 1;
     }

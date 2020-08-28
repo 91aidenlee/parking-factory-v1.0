@@ -8,7 +8,8 @@ var indexRouter = require('./server/routes/index');
 var checkInRouter = require('./server/routes/checkIn');
 var checkOutRouter = require('./server/routes/checkOut');
 var joinMembersRouter = require('./server/routes/joinMembers');
-var adminRouter = require('./server/routes/adminAuth');
+var adminAuthRouter = require('./server/routes/adminAuth');
+var adminPageRouter = require('./server/routes/adminPage');
 var paymentRouter = require('./server/routes/payment');
 
 var app = express();
@@ -27,7 +28,8 @@ app.use('/', indexRouter);
 app.use('/check_in', checkInRouter);
 app.use('/check_out', checkOutRouter);
 app.use('/members', joinMembersRouter);
-app.use('/admin_auth', adminRouter);
+app.use('/admin_auth', adminAuthRouter);
+app.use('/admin_page', adminPageRouter);
 app.use('/payment', paymentRouter);
 
 // catch 404 and forward to error handler

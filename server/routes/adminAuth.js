@@ -16,10 +16,8 @@ router.post('/', function (req, res, next) {
 
   // 관리자 페이지 로그인
   if (input_id != admin_id) {
-    // res.send('등록되어 있지 않은 계정입니다. :(');
     res.render('admin_auth_error', { title: 'Parking Factory', page: 'Login Admin', message: incorrectId });
   } else if (input_pw != admin_pw) {
-    // res.send('비밀번호를 잘못 입력했습니다. :(');
     res.render('admin_auth_error', { title: 'Parking Factory', page: 'Login Admin', message: incorrectPw });
   } else {
     res.render('admin_page', { title: 'Parking Factory', page: 'Admin Page' });
