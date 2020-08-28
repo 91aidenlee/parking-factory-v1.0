@@ -75,6 +75,10 @@
   transition: 0.2s ease-in-out;
   outline: none;
 }
+.submit_btn:focus {
+  outline: none;
+}
+
 .submit_btn.join_btn {
   width: 70%;
 }
@@ -107,4 +111,5 @@
 .message {
   text-align: center;
   margin-top: 20px;
+  color: #8c8c88;
 }
