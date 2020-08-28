@@ -24,19 +24,23 @@ router.post('/', function (req, res, next) {
     console.log(isMember);
     if (isMember) {
       logger.checkOutCar(log_car_number).then((result) => {
-        putSuccess = result;
-        if (putSuccess === 0) {
-          res.render('check_out_error', { title: 'Parking Factory', page: 'Check Out', message: invalidateCar });
-        }
-        res.render('check_out_success', { title: 'Parking Factory', page: 'Check Out', message: `${log_car_number}${checkOutFinish}` });
+        logger.deleteLog(log_car_number).then((result) => {
+          putSuccess = result;
+          if (putSuccess === 0) {
+            res.render('check_out_error', { title: 'Parking Factory', page: 'Check Out', message: invalidateCar });
+          }
+          res.render('check_out_success', { title: 'Parking Factory', page: 'Check Out', message: `${log_car_number}${checkOutFinish}` });
+        });
       });
     } else {
       logger.checkOutCar(log_car_number).then((result) => {
-        putSuccess = result;
-        if (putSuccess === 0) {
-          res.render('check_out_error', { title: 'Parking Factory', page: 'Check Out', message: invalidateCar });
-        }
-        res.render('payment', { title: 'Parking Factory', page: 'Payment', button: 'Payment Request' });
+        logger.deleteLog(log_car_number).then((result) => {
+          putSuccess = result;
+          if (putSuccess === 0) {
+            res.render('check_out_error', { title: 'Parking Factory', page: 'Check Out', message: invalidateCar });
+          }
+          res.render('payment', { title: 'Parking Factory', page: 'Payment', button: 'Payment Request' });
+        });
       });
     }
   });

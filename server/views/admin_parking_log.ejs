@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="wrap">
+      <%- include("partials/header.ejs") %>
+      <div class="main">
+        <h1 class="main_title uppercase_text"><%= page %></h1>
+        <form class="form join_form" action="/admin_page" method="POST">
+          <!-- <button id="show_log" class="submit_btn admin_btn uppercase_text" name="parking_log" type="submit">입출차 내역</button>
+          <button id="delete_log" class="submit_btn admin_btn uppercase_text" name="delete_log" type="submit">입출차 내역 일괄 삭제</button> -->
+          parking log
+        </form>
+      </div>
+      <%- include("partials/footer.ejs") %>
+    </div>
+  </body>
+</html>
