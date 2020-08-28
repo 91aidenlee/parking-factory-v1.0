@@ -4,6 +4,7 @@ class DBConnector {
   constructor() {
     this.db = mysql.createConnection({
       user: 'root',
+      host: 'localhost',
       password: '1355',
       database: 'parking_db',
     });

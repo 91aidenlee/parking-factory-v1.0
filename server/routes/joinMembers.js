@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Member = require('../controller/Members');
-const e = require('express');
 
 router.get('/', function (req, res, next) {
   res.render('members', { title: 'Parking Factory', page: 'Join Members' });

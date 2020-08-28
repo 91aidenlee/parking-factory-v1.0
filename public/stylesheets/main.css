@@ -41,6 +41,9 @@
   flex-direction: column;
   height: 30vh;
 }
+.form.payment_form {
+  flex-direction: column;
+}
 
 .form.admin {
   flex-direction: column;
