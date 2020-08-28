@@ -9,12 +9,12 @@
       <div class="main">
         <h1 class="main_title uppercase_text"><%= page %></h1>
         <form class="form payment_form" action="/payment" method="POST">
-          <input class="input_form" type="text" name="subtotal" placeholder="&#8361;5,000" readonly />
-          <input class="input_form" type="hidden" name="total_amount" value="5000" />
-          <input class="input_form" id="input_amount" type="text" name="input_amount" placeholder="투입 금액" required />
+          <input class="input_form" type="text" name="subtotal" placeholder="&#8361;8,000" readonly />
+          <input class="input_form" type="hidden" name="total_amount" value="8000" />
+          <input class="input_form" id="input_amount" type="text" name="input_amount" maxlength="5" placeholder="투입 금액" required />
           <button class="submit_btn join_btn uppercase_text" type="submit"><%= button %></button>
         </form>
-        <p><%= message %></p>
+        <p class="message"><%= message %></p>
       </div>
       <%- include("partials/footer.ejs") %>
     </div>
