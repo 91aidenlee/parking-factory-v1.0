@@ -1,5 +1,6 @@
 const mysql = require('mysql2');
 
+//DB 연결
 class DBConnector {
   constructor() {
     this.db = mysql.createConnection({
