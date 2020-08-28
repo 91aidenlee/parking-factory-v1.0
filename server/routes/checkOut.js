@@ -19,14 +19,24 @@ router.post('/', function (req, res, next) {
 
   member.checkRegular(log_car_number).then((result) => {
     isMember = result;
-
-    logger.checkOutCar(log_car_number).then((result) => {
-      putSuccess = result;
-      if (putSuccess === 0) {
-        res.send('입차 기록이 없는 차량 번호입니다. 차량 번호를 다시 입력하세요.');
-      }
-      res.send('GUEST님 안녕히 가세요 :)');
-    });
+    console.log(isMember);
+    if (isMember) {
+      logger.checkOutCar(log_car_number).then((result) => {
+        putSuccess = result;
+        if (putSuccess === 0) {
+          res.send('입차 기록이 없는 차량 번호입니다. 차량 번호를 다시 입력하세요.');
+        }
+        res.send('Members님 안녕히 가세요 :)');
+      });
+    } else {
+      logger.checkOutCar(log_car_number).then((result) => {
+        putSuccess = result;
+        if (putSuccess === 0) {
+          res.send('입차 기록이 없는 차량 번호입니다. 차량 번호를 다시 입력하세요.');
+        }
+        res.render('payment', { title: 'Parking Factory', page: 'Payment', button: 'Payment Request' });
+      });
+    }
   });
 });
 

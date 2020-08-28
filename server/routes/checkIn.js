@@ -19,7 +19,7 @@ router.post('/', function (req, res, next) {
 
   member.checkRegular(log_car_number).then((result) => {
     isMember = result;
-
+    console.log(isMember);
     logger.checkInCar(log_car_number).then((result) => {
       putSuccess = result;
       if (putSuccess === 0) {

@@ -5,7 +5,7 @@ class Logger {
     this.db = new DBConnector();
   }
 
-  async checkInCar(log_car_number, isMembers) {
+  async checkInCar(log_car_number) {
     let rns = 0;
     let result;
     let query;

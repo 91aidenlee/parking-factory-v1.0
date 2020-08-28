@@ -9,6 +9,7 @@ var checkInRouter = require('./server/routes/checkIn');
 var checkOutRouter = require('./server/routes/checkOut');
 var joinMembersRouter = require('./server/routes/joinMembers');
 var adminRouter = require('./server/routes/adminAuth');
+var paymentRouter = require('./server/routes/payment');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use('/check_in', checkInRouter);
 app.use('/check_out', checkOutRouter);
 app.use('/members', joinMembersRouter);
 app.use('/admin_auth', adminRouter);
+app.use('/payment', paymentRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
