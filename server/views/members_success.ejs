@@ -8,12 +8,16 @@
       <%- include("partials/header.ejs") %>
       <div class="main">
         <h1 class="main_title uppercase_text"><%= page %></h1>
-        <form class="form payment_form" action="/payment" method="POST">
-          <input class="input_form" type="text" name="subtotal" placeholder="&#8361;5,000" readonly />
-          <input class="input_form" type="hidden" name="total_amount" value="5000" />
+        <form class="form join_form" action="/members" method="POST">
+          <input class="input_form" type="text" name="name" placeholder="이름" required />
+          <input class="input_form" id="phone_number" type="text" name="phone_number" placeholder="전화번호" maxlength="11" required />
+          <input class="input_form" type="text" name="my_car_number" placeholder="차량번호" maxlength="8" required />
+          <input class="input_form" type="text" name="subtotal" placeholder="&#8361;30,000" readonly />
+          <input class="input_form" type="hidden" name="total_amount" value="30000" />
           <input class="input_form" id="input_amount" type="text" name="input_amount" placeholder="투입 금액" required />
-          <button class="submit_btn join_btn uppercase_text" type="submit"><%= button %></button>
+          <button class="submit_btn join_btn uppercase_text" type="submit"><%= page %></button>
         </form>
+        <p class="message"><%= message %></p>
       </div>
       <%- include("partials/footer.ejs") %>
     </div>

@@ -14,6 +14,8 @@ router.post('/', function (req, res, next) {
   let { log_car_number } = req.body;
   let putSuccess = 0;
   let isMember = 0;
+  const invalidateCar = '입차 기록이 없는 차량 번호입니다. 차량 번호를 다시 입력하세요.';
+  const checkOutFinish = '님 안녕히 가세요 :)';
   const logger = new Logger();
   const member = new Members();
 
@@ -24,15 +26,18 @@ router.post('/', function (req, res, next) {
       logger.checkOutCar(log_car_number).then((result) => {
         putSuccess = result;
         if (putSuccess === 0) {
-          res.send('입차 기록이 없는 차량 번호입니다. 차량 번호를 다시 입력하세요.');
+          res.render('check_out_error', { title: 'Parking Factory', page: 'Check Out', message: invalidateCar });
+          // res.send('입차 기록이 없는 차량 번호입니다. 차량 번호를 다시 입력하세요.');
         }
-        res.send('Members님 안녕히 가세요 :)');
+        res.render('check_out_success', { title: 'Parking Factory', page: 'Check Out', message: `${log_car_number}${checkOutFinish}` });
+        // res.send('Members님 안녕히 가세요 :)');
       });
     } else {
       logger.checkOutCar(log_car_number).then((result) => {
         putSuccess = result;
         if (putSuccess === 0) {
-          res.send('입차 기록이 없는 차량 번호입니다. 차량 번호를 다시 입력하세요.');
+          res.render('check_out_error', { title: 'Parking Factory', page: 'Check Out', message: invalidateCar });
+          // res.send('입차 기록이 없는 차량 번호입니다. 차량 번호를 다시 입력하세요.');
         }
         res.render('payment', { title: 'Parking Factory', page: 'Payment', button: 'Payment Request' });
       });

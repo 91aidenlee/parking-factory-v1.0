@@ -6,15 +6,21 @@ router.post('/', function (req, res, next) {
   let query;
   let totalAmount = Number(body.total_amount);
   let inputAmount = Number(body.input_amount);
-  let putSuccess = 0;
+
   if (totalAmount > inputAmount) {
     let requireAmount = totalAmount - inputAmount;
-    res.send(`${requireAmount}원이 부족합니다. :( 투입 금액을 확인해주세요.)`);
+    const notEnoughMoney = `${requireAmount}원이 부족합니다. :( 투입 금액을 확인해주세요.`;
+    res.render('payment_error', { title: 'Parking Factory', page: 'Payment', button: 'Payment Request', message: notEnoughMoney });
+    // res.send(`${requireAmount}원이 부족합니다. :( 투입 금액을 확인해주세요.)`);
   } else if (totalAmount < inputAmount) {
     let change = inputAmount - totalAmount;
-    res.send(`정산 처리 완료되었습니다. 거스름돈은 ${change}원입니다. 안녕히 가세요. :)`);
+    const checkChange = `정산 처리 완료되었습니다. 거스름돈은 ${change}원입니다. 안녕히 가세요. :)`;
+    res.render('payment_success', { title: 'Parking Factory', page: 'Payment', button: 'Payment Request', message: checkChange });
+    // res.send(`정산 처리 완료되었습니다. 거스름돈은 ${change}원입니다. 안녕히 가세요. :)`);
   } else if (totalAmount === inputAmount) {
-    res.send('정산 처리 완료되었습니다. 안녕히 가세요. :)');
+    const checkOutFinish = '정산 처리 완료되었습니다. 안녕히 가세요. :)';
+    res.render('payment_success', { title: 'Parking Factory', page: 'Payment', button: 'Payment Request', message: checkOutFinish });
+    // res.send('정산 처리 완료되었습니다. 안녕히 가세요. :)');
   }
 });
 
