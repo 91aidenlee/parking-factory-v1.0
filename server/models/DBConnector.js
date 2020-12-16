@@ -1,19 +1,22 @@
-const mysql = require('mysql2');
+const env = require("dotenv");
+const mysql = require("mysql2");
+
+env.config();
 
 //DB 연결
 class DBConnector {
   constructor() {
     this.db = mysql.createPool({
       connectionLimit: 7,
-      user: 'root',
-      host: 'localhost',
-      password: '1355',
-      database: 'parking_db',
+      user: process.env.MYSQL_USER,
+      host: process.env.MYSQL_HOST,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DB,
     });
   }
   connect() {
     this.db.connect();
-    console.log('Successfully connected!');
+    console.log("Successfully connected!");
   }
   disconnect() {
     this.db.end();
